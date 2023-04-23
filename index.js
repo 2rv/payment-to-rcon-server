@@ -15,6 +15,8 @@ const rconOptions = {
   password: "mysecretpassword"
 };
 
+process.env.HOST
+
 
 let rconClient;
 
@@ -49,7 +51,7 @@ app.post("/donate", (req, res) => {
   } = data;
 
   // Виконання команди rcon з параметрами з тіла запиту
-  rconClient.send(`servermsg "${message}"`);
+  rconClient.send(`servermsg "${message} (донат від ${clientName} на суму ${amount} ${currency}"`);
 
   // Відправлення відповіді на запит
   res.json({ success: true });
