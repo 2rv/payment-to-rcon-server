@@ -10,13 +10,10 @@ app.use(bodyParser.json());
 
 // Параметри підключення до сервера Minecraft
 const rconOptions = {
-  host: "localhost",
-  port: 25575,
-  password: "mysecretpassword"
+  host: process.env.HOST,
+  port: process.env.PORT,
+  password: process.env.PASSWORD
 };
-
-process.env.HOST
-
 
 let rconClient;
 
