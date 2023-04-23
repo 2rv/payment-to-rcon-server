@@ -35,7 +35,7 @@ app.post("/donate", (req, res) => {
   console.log('new donate');
 
   const data = req.body;
-  
+
   const {
     pubId,
     clientName,
@@ -49,7 +49,7 @@ app.post("/donate", (req, res) => {
   } = data;
 
   // Виконання команди rcon з параметрами з тіла запиту
-  rconClient.send(`say Донат від ${clientName}: ${message}`);
+  rconClient.send(`servermsg "${message}"`);
 
   // Відправлення відповіді на запит
   res.json({ success: true });
